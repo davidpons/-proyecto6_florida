@@ -23,10 +23,10 @@ public class ConexionDB {
 	 * Constructor por defecto/sin parametros.
 	 */
 	public ConexionDB(){
-		this.url="jdbc:mysql://alumnos.890m.com:3306/mysql";
-		this.user="u109047047_david";
-		this.pass="david94";
-		this.bbdd="u109047047_dapr6";
+		this.url="jdbc:mysql://localhost:3306/dapr6";
+		this.user="root";
+		this.pass="";
+		this.bbdd="dapr6";
 	}
 	
 	public boolean conectarDB(){
@@ -35,6 +35,8 @@ public class ConexionDB {
 			Class.forName("com.mysql.jdbc.Driver");
 			
 			this.con = DriverManager.getConnection(url,user,pass);
+			
+			
 		} catch (ClassNotFoundException noEncuentroClase) {
 			// TODO Auto-generated catch block
 			noEncuentroClase.printStackTrace();
