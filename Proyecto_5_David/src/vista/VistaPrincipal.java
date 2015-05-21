@@ -45,12 +45,12 @@ public class VistaPrincipal extends JPanel {
 		setLayout(null);
 		
 		txtJuegos = new JTextField();
-		txtJuegos.setToolTipText("La contrase\u00F1a debe contener diversos car\u00E1cteres.");
+		txtJuegos.setToolTipText("La contraseña debe contener diversos car\u00E1cteres.");
 		txtJuegos.setHorizontalAlignment(SwingConstants.CENTER);
 		txtJuegos.setFont(new Font("Sylfaen", Font.PLAIN, 23));
 		txtJuegos.setBounds(28, 280, 149, 30);
 		add(txtJuegos);
-		//txtJuegos.setColumns(10);
+		
 		
 		JButton btnJuegos = new JButton("Juegos>");
 		btnJuegos.addActionListener(new ActionListener() {

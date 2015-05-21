@@ -4,29 +4,27 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * Clase de utilidad para conectar con la Base de Datos.
- * 
- * @author Sergio
- *
- */
+import modelo.ConexionDB;
+
 public class ConexionDB {
 				
-	private String user;   //Guarda el nombre del usuario con que nos conectaremos.
-	private String bbdd;  //Guarda el nombre de la bd a la que nos conectamos.
-	private String url;  // Guarda la direccion de la bd.
-	private String pass;// Gurda el pass con el que accedemos.
+	//DATOS DE LA BBDD
+	private String host;
+	private String bbdd;
+	private String user;
+	private String pass;
+	private String url;
 	
-	private static Connection con; //Describe una conexión (puente entre App Java y BD) 
+	//Conexion
+	private static Connection conexion = null;// maneja la conexió
 	
-	/**
-	 * Constructor por defecto/sin parametros.
-	 */
-	public ConexionDB(){
-		this.url="jdbc:mysql://localhost:3306/dapr6";
-		this.user="root";
-		this.pass="";
-		this.bbdd="dapr6";
+	public ConexionDB(String HOST,String BBDD,String USER,String PASS) {
+		this.host=HOST;
+		this.bbdd=BBDD;
+		this.user=USER;
+		this.pass=PASS;
+		this.url="jdbc:mysql://"+this.host+"/"+this.bbdd;
+		
 	}
 	
 	public boolean conectarDB(){
@@ -34,7 +32,7 @@ public class ConexionDB {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			this.con = DriverManager.getConnection(url,user,pass);
+			this.conexion = DriverManager.getConnection(this.url,this.user,this.pass);
 			
 			
 		} catch (ClassNotFoundException noEncuentroClase) {
@@ -53,7 +51,7 @@ public class ConexionDB {
 	}
 	
 	public static Connection getConexion(){
-		return con;
+		return conexion;
 	}
 		
 }

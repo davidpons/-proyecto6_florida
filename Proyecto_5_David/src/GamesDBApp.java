@@ -12,9 +12,9 @@ public class GamesDBApp {
 	public static void main(String[] args) {
 		
 		//Estableciendo la conexion a la BD.
-		ConexionDB gameDB = new ConexionDB();
+		ConexionDB gameDB = new ConexionDB("localhost", "proyecto_06", "root", "tonphp");
 		
-		if(gameDB.conectarDB()){
+		if(gameDB.conectarDB()==true){
 			System.out.println("Conectados con éxito");
 		}else{
 			System.out.println("Error en la conexión");
@@ -23,8 +23,6 @@ public class GamesDBApp {
 		//Creamos y mostramos la pantalla principal
 		VistaApp vista = new VistaApp();
 		vista.setVisible(true);
-		
-
 	}
 
 }

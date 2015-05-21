@@ -12,16 +12,13 @@ public class UsuariosModel {
 	private Connection con;
 	private Statement instruccion; //Representa la consulta de BD que vamos a lanzar.
 	private ResultSet usuariosSet; //Lista de usuarios en formato Sql
-	private final String sql="select usuario from usuarios;";
+	private String sql="select * from usuarios;";
+	private String nombreuseer="select * from usuarios;";
 	
 	public UsuariosModel(){
 		this.con = ConexionDB.getConexion();
 	}
 
-	/**
-	 * Devolver el listado de usuarios. 
-	 * @return
-	 */
 	public ArrayList getUsuarios() {
 		List<String> usuarios = new ArrayList<>();
 		
