@@ -16,65 +16,47 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import java.awt.CardLayout;
+
 
 public class VistaApp extends JFrame {
 
-	private JPanel contentPane;
-
-	/**
-	 * Create the frame.
-	 */
+	private JPanel contentPane; //cuadro de app	
+	VistaPrincipal vistaPrincipal=new VistaPrincipal(); //se declara la vistaPrincipal
+	
 	public VistaApp() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 461, 487);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
-		VistaPrincipal vistaPrincipal = new VistaPrincipal();
-		vistaPrincipal.setBounds(0, 21, 434, 428);
-		contentPane.add(vistaPrincipal);
 		
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 264, 21);
-		contentPane.add(menuBar);
+		setJMenuBar(menuBar); //barra de tareas
 		
-		JMenu principalMenu = new JMenu("Principal");
+		JMenu principalMenu = new JMenu("Principal");//menu principal
 		menuBar.add(principalMenu);
 		
-		JMenuItem principalItem = new JMenuItem("Principal");
+		JMenuItem principalItem = new JMenuItem("Principal"); //submenu principal
 		principalMenu.add(principalItem);
 		
-		JMenu juegosMenu = new JMenu("Juegos");
+		JMenu juegosMenu = new JMenu("Juegos");//menu juegos
 		menuBar.add(juegosMenu);
 		
-		JMenuItem listaJuegosItem = new JMenuItem("Lista Juegos");
+		JMenuItem listaJuegosItem = new JMenuItem("Lista Juegos"); //submenu lista juegos
 		juegosMenu.add(listaJuegosItem);
 		
-		JMenu perfilMenu = new JMenu("Perfil");
+		JMenu perfilMenu = new JMenu("Perfil"); //menu perfil
 		menuBar.add(perfilMenu);
 		
-		JMenuItem perfilItem = new JMenuItem("Perfil");
+		JMenuItem perfilItem = new JMenuItem("Perfil"); //submenu perfil
 		perfilMenu.add(perfilItem);
 		
+
+		contentPane = new JPanel(); //JPanel
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5)); //borde de la app.
+		setContentPane(contentPane);
+		contentPane.setLayout(new CardLayout(0, 0)); //cardLayout para tener un panel principal y subpaneles.
+		
+		contentPane.add(vistaPrincipal, "VistaPrincipal"); //carga el panel de vista principal al final
+		
 			}
-	
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			public void mousePressed(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
-	}
 }

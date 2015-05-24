@@ -33,66 +33,60 @@ public class VistaPrincipal extends JPanel {
 
 	private JTextField txtJuegos;
 	private Border border;
-	
-	//El Modelo de usuarios para el combobox
 	private UsuariosModel usuarios;
 
-	/**
-	 * Create the panel.
-	 */
-	@SuppressWarnings("unchecked")
+	
 	public VistaPrincipal() {
 		setLayout(null);
 		
-		txtJuegos = new JTextField();
-		txtJuegos.setToolTipText("La contraseña debe contener diversos car\u00E1cteres.");
-		txtJuegos.setHorizontalAlignment(SwingConstants.CENTER);
-		txtJuegos.setFont(new Font("Sylfaen", Font.PLAIN, 23));
+		txtJuegos = new JTextField();//donde se pone la contraseña vacia
+		txtJuegos.setToolTipText("La contraseña debe contener diversos caracteres."); //requisitos de la contraseña
+		txtJuegos.setHorizontalAlignment(SwingConstants.CENTER);//fuente de la contraseña
+		txtJuegos.setFont(new Font("Sylfaen", Font.PLAIN, 23));//fuente de la contraseña
 		txtJuegos.setBounds(28, 280, 149, 30);
 		add(txtJuegos);
 		
-		
-		JButton btnJuegos = new JButton("Juegos>");
-		btnJuegos.addActionListener(new ActionListener() {
+		JButton btnJuegos = new JButton("Juegos>"); //boton para juegos con el JBUTTON
+		btnJuegos.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
 		btnJuegos.setBounds(258, 64, 135, 23);
 		add(btnJuegos);
 		
-		JButton btnPerfil = new JButton("Perfil>");
+		JButton btnPerfil = new JButton("Perfil>"); //boton para perfil con el JBUTTON
 		btnPerfil.setBounds(258, 98, 135, 23);
 		add(btnPerfil);
 		
-		JComboBox comboBox = new JComboBox();
+		JComboBox comboBox = new JComboBox(); //boton desplegable para usuario con el JLabel
 		comboBox.setBounds(28, 208, 149, 23);
 		add(comboBox);
 		
-		JLabel lblUsuario = new JLabel("Usuario");
+		JLabel lblUsuario = new JLabel("Usuario"); //texto 'usuario' que hay arriba del desplegable.
 		lblUsuario.setBounds(35, 183, 79, 14);
 		add(lblUsuario);
 		
-		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setBounds(35, 256, 66, 14);
-		add(lblContrasea);
+		JLabel lblContraseña = new JLabel("Contraseña"); //texto 'contraseña' que hay arriba del JtextField.
+		lblContraseña.setBounds(35, 256, 79, 14);
+		add(lblContraseña);
 		
 		JButton btnLogin = new JButton("Login");
-		btnLogin.setEnabled(false);
+		btnLogin.setEnabled(false);//hacemos que no este visible el boton de login.
 		btnLogin.setBounds(28, 338, 135, 23);
 		add(btnLogin);
 		
 		JButton btnRegistrarse = new JButton("Registrarse");
-		btnRegistrarse.setEnabled(false);
+		btnRegistrarse.setEnabled(false);//hacemos que no este visible el boton de registrarse.
 		btnRegistrarse.setBounds(28, 375, 135, 23);
 		add(btnRegistrarse);
 		
-		border = LineBorder.createGrayLineBorder();
+		border = LineBorder.createGrayLineBorder();  //crea el borde del avatar.
 		
-		JLabel lblAvatar = new JLabel("Avatar");
-		lblAvatar.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/images/avatar_1.jpg")));
-		lblAvatar.setBounds(22, 11, 181, 161);
+		JLabel lblAvatar = new JLabel("Avatar");//JLabel donde esta la foto de avatar
+		lblAvatar.setIcon(new ImageIcon(VistaPrincipal.class.getResource("/images/avatar_1.jpg")));//imagen avatar 
+		lblAvatar.setBounds(22, 11, 167, 161);
 		
-		lblAvatar.setBorder(border);
+		lblAvatar.setBorder(border);//crea el borde del avatar.
 		add(lblAvatar);
 		
 		//TODO: Recuperar items de BD.
