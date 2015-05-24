@@ -12,7 +12,7 @@ public class GamesDBApp {
 	public static void main(String[] args) {
 		
 		//Estableciendo la conexion a la BD.
-		ConexionDB gameDB = new ConexionDB("localhost", "proyecto_06", "root", "tonphp");
+		ConexionDB gameDB = new ConexionDB("localhost", "proyecto_06", "root", "");
 		
 		if(gameDB.conectarDB()==true){
 			System.out.println("Conectados con éxito");
